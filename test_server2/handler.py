@@ -3,7 +3,7 @@ from unnamed.Server import server,POSTForward
 from unnamed.coding.bencoding import Wrap
 from base64 import b64decode,b64encode
 from unnamed.cryptography.host import host
-from test_server2.settings import pk,key,key_str
+from test_server3.settings import pk,key,key_str
 
 def new(req,**kwargs):
     bstr = Wrap.toBen(req['request-data']['data'])

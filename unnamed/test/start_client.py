@@ -8,7 +8,7 @@ pk = host.load_pk('../../CLIEN1_PK',b'1234')
 key = host.load_key('../../CLIEN1_KEY')
 while True:
     conn = TCPConnection()
-    conn.connect("127.0.0.1",1024)
+    conn.connect("127.0.0.1",1026)
     data = {
         "request" : [input()],
         "params" : {"name": input(), "fullname": input(), "email": input()},
@@ -27,14 +27,11 @@ while True:
         'request-type' : 'new',
     }
     req = client.request(reqd)
-    print(req)
-    # print((len(req)*8)/1000.0)
-    # time.sleep((len(req)*8)/1000.0)
     client.request_send(conn,req)
     b = client.response_recv(conn)
-    print(b)
     d = client.response(b)
-    print(d)
-    conn.close()
+    if reqd['request-data']['type'] == 'POST':
 
-    print(d['response-type'])
+        b2 = client.response_recv(conn)
+    conn.close()
+    print(d)
