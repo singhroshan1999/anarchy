@@ -60,8 +60,8 @@ while True:
     resp = dispatcher.dispatch(disp,list(d["request"]),d)
     # resp = "hfghfgh"+ str(random.randint(1,1000))
     server.response_send(conn, server.response(resp))
-    if d['type'] == 'POST':
-        d = POSTForward.forward(d['request'],d['params'],'127.0.0.1',1025)
-        server.response_send(conn, server.response(d))
+    # if d['type'] == 'POST':
+    d = POSTForward.forward(d['request'],d['params'],'127.0.0.1',1025)
+    server.response_send(conn, server.response(d))
     conn.close()
 
