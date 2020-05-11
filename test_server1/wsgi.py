@@ -1,7 +1,7 @@
 from unnamed.connection.serv import ServLocal
 from unnamed.Server import server,POSTForward
-from test_server1.dispatch import disp
-from test_server1.handler import handler
+from tracker.dispatch import disp
+from tracker.handler import handler
 
 s = ServLocal()
 s.listen()

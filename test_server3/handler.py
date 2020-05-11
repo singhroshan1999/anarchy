@@ -3,7 +3,7 @@ from unnamed.Server import server, POSTForward
 from unnamed.coding.bencoding import Wrap
 from base64 import b64decode, b64encode
 from unnamed.cryptography.host import host
-from test_server1.settings import pk, key, key_str
+from test_server3.settings import pk, key, key_str
 from unnamed.connection.tcp import TCPConnection
 from unnamed.Client import client
 
@@ -17,7 +17,7 @@ def new(req, **kwargs):
         raise Exception
     else:
         print("VERIFIED")
-    data = dispatch(kwargs['dispatch'], list(req['request-data']['data']['request']), req['request-data']['data'])
+    data = dispatch(kwargs['dispatch'], list(req['request-data']['data']['request']), req['request-data'])
     out_bstr = Wrap.toBen(data)
     response_data = {
         'data': data,
