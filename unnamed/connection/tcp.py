@@ -28,7 +28,7 @@ class TCPConnection:
 
 if __name__ == "__main__":
     test = TCPConnection()
-    test.connect("facebook.com")
+    test.connect("127.0.0.1",1026)
     test.sendall(b"GET / HTTP/1.1\r\n"+b"Host: facebookcorewwwi.onion\r\n\r\n")
     print(test.recv())
     test.close()

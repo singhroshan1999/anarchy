@@ -1,3 +1,3 @@
-from test_server3 import settings
-from test_server3 import model
+from test_server2 import settings
+from test_server2 import model
 settings.database.migrate()

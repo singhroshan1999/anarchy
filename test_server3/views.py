@@ -1,5 +1,5 @@
-from test_server4.settings import database
-from test_server4.model import User
+from test_server3.settings import database
+from test_server3.model import User
 
 
 def hello(header):

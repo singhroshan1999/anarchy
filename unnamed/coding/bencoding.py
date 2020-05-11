@@ -113,8 +113,13 @@ class Wrap:
     def bytesToReduce(st):
         wrp,i = Wrap.bytesToReduce_r(st)
         return wrp.bc
+    @staticmethod
+    def toBen(d):
+        return Wrap.reduceToBytes(Wrap.dictToBen(d))
+
 
 if __name__ == "__main__":
     l = [1, 2, 3, 4, 5]
     print(Wrap.reduceToBytes(Wrap.dictToBen({'key2': ['Geeks', 'For', 'Geeks'], 'key1': [1, 2]})))
     print(Wrap.bytesToReduce('d4:key2l5:Geeks3:For5:Geekse4:key1li1ei2eeed4:key2l5:Geeks3:For5:Geekse4:key1li1ei2eee'))
+    print(Wrap.bytesToReduce('d13:response-datad4:datad2:dbl9:sadasdads12:asdasdasdasd15:asdasdasdasdasdeee13:response-type4:DATAe'))

@@ -2,13 +2,12 @@ from unnamed.coding.bencoding import Wrap
 
 
 def response(resp):
-    d = {"response":resp}
-    return Wrap.reduceToBytes(Wrap.dictToBen(d))
+    return Wrap.reduceToBytes(Wrap.dictToBen(resp))
 
 
 def request(b):
     d = Wrap.bytesToReduce(b)
-    return d
+    return d[0]
 
 
 def response_send(conn, resp):
@@ -24,3 +23,5 @@ def request_recv(conn):
             break
     return str(b[:-2],encoding="utf-8")
 
+def request_type_handle(req,handler,**kwargs):
+    return handler[req['request-type']](req,**kwargs)

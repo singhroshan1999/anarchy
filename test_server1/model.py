@@ -1,5 +1,5 @@
 from sqlalchemy import Column,String,Integer
-from test_server2 import settings
+from test_server1 import settings
 
 class User(settings.base):
     __tablename__ = "User"

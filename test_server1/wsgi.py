@@ -1,7 +1,7 @@
 from unnamed.connection.serv import ServLocal
 from unnamed.Server import server,POSTForward
-from test_server2.dispatch import disp
-from test_server2.handler import handler
+from test_server1.dispatch import disp
+from test_server1.handler import handler
 
 s = ServLocal()
 s.listen()
@@ -19,5 +19,5 @@ while True:
     server.request_type_handle(d,handler=handler,conn = conn,dispatch = disp)
 
     conn.close()
-
+    print("END1")
 

@@ -1,13 +1,14 @@
 from unnamed.coding.bencoding import Wrap
 
 
-def request(request,params,type):
-    d = {
-        "request": request,
-        "params" : params,
-        "type" : type
-    }
-    return Wrap.reduceToBytes(Wrap.dictToBen(d))
+def request(req):
+    # d = {
+    #     "data":data,
+    #     "type" : type,
+    #     "key" : key,
+    #     "sign" : sign
+    # }
+    return Wrap.reduceToBytes(Wrap.dictToBen(req))
 
 
 def request_append(request,uri):
@@ -15,7 +16,7 @@ def request_append(request,uri):
 
 def response(reqresp):
     d = Wrap.bytesToReduce(reqresp)
-    return d
+    return d[0]
 
 
 def request_send(conn,req):

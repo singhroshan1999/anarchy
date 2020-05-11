@@ -1,4 +1,4 @@
-from test_server2.views import hello2,hello
+from test_server1.views import hello2,hello
 
 disp = {
     "get":hello,
