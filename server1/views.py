@@ -17,3 +17,10 @@ def post(header):
     sesson.commit()
     # print(header["params"]["name"])
     return  {"status":"OK"}
+
+def add_user(header):
+    user = User(name = header['data']['params']['name'], key = header['key'])
+    sesson = database.new_session()
+    sesson.add(user)
+    sesson.commit()
+    return {"status":"OK"}

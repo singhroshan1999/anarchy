@@ -26,7 +26,7 @@ while True:
     # if d['type'] == 'POST':
     #     d = POSTForward.forward(d['request'], d['params'], '127.0.0.1', 1024)
     #     server.response_send(conn, server.response(d))
-    server.request_type_handle(d,handler=handler,conn = conn,dispatch = disp)
+    server.request_type_handle(d,handler=handler,conn = conn,dispatch = disp,port = s.port)
 
     conn.close()
     print("END1")

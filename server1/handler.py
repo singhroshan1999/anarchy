@@ -1,5 +1,5 @@
 from unnamed.Server.dispatcher import dispatch
-from unnamed.Server import server
+from unnamed.Server import server,helper
 from unnamed.coding.bencoding import Wrap
 from base64 import b64decode
 from unnamed.cryptography.host import host
@@ -34,6 +34,9 @@ def new(req,**kwargs):
         req['forward-host'] = host.b64_str(key_str)
         req['forward-sign'] = host.b64_str(host.sign_str(pk,fw_bstr))
         print(req)
+        trac = helper.tracker_get('127.0.0.1', 1024, ['get'], 'my_app2', '127.0.0.1', kwargs['port'], key, pk)
+        fw_conn = TCPConnection()
+        fw_conn.connect(trac['response-data']['data']['db'][0], trac['response-data']['data']['db'][1])
         req_b = client.request(req)
         fw_conn = TCPConnection()
         fw_conn.connect('127.0.0.1',1025)

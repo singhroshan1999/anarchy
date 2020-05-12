@@ -9,13 +9,11 @@ key = host.load_key('../../CLIEN1_KEY')
 
 while True:
     conn = TCPConnection()
-    conn.connect("127.0.0.1",1024)
+    conn.connect("127.0.0.1",1027)
     data = {
-            'request' : ['get'],
+            'request' : ['add'],
             'params' : {
-                'app' : input(),
-                'hostname' : '127.1.0.1',
-                'port' : 1234
+                'name' : input(),
             }
         }
     bstr = Wrap.reduceToBytes(Wrap.dictToBen(data))

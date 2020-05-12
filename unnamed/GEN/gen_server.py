@@ -15,5 +15,5 @@ def replace_dir(server_name,path):
     host.gen_key(host.gen_pk(path+server_name+'/SERVER_PK',True,b'1234'),path+server_name+'/SERVER_KEY',True)
 
 if __name__ == '__main__':
-
-    replace_dir("server1",'../../')
+    for i in range(1,4):
+        replace_dir("server"+str(i),'../../')
