@@ -2,8 +2,10 @@ from unnamed.connection.serv import ServLocal
 from unnamed.Server import server
 from server2.dispatch import disp
 from server2.handler import handler
-from server2.settings import key,pk
+from server2.settings import key,pk,database
 from unnamed.Server import helper
+from server1.replication import xor_replication_post
+import time
 s = ServLocal()
 s.listen()
 print(s.hostname,s.port)
@@ -16,6 +18,11 @@ helper.tracker_update('127.0.0.1',
                       s.port,
                       key,
                       pk)
+
+# while True:
+#     trac = helper.tracker_get('127.0.0.1', 1024, ['get'], 'my_app2', '127.0.0.1',s.port, key, pk)
+#     xor_replication_post(trac,database=database)
+#     time.sleep(5)
 
 while True:
     conn,addr = s.accept()

@@ -1,6 +1,7 @@
 from tracker.settings import database
 from tracker.model import App,Server
 from sqlalchemy import and_,or_
+import random
 
 
 # def hello(header):
@@ -42,12 +43,14 @@ def add_server(header):
 def get_server(header):
     sesson = database.new_session()
     app = sesson.query(App).filter_by(name = header['data']['params']['app']).all()[0]
-    serverlist = sesson.query(Server).filter(or_(
-        Server.hostname != header['data']['params']['hostname'],
+    serverlist = sesson.query(Server).filter(and_(
+        # Server.hostname != header['data']['params']['hostname'], # TODO
         Server.port != header['data']['params']['port'],
         Server.app == app
     )).all()
     print('server::',serverlist)
-    hostname,port = serverlist[-1].hostname,serverlist[-1].port
+    rand = random.randint(0,len(serverlist)-1)
+    hostname,port = serverlist[rand].hostname,serverlist[rand].port
+    print("->",hostname,port)
     return {'db':[hostname,port]}
 

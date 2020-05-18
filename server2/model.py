@@ -17,6 +17,7 @@ class Post(settings.base):
     text = Column(String)
     datetime = Column(DateTime,default=datetime.datetime.now())
     sign = Column(String,unique=True,nullable=False)
+    xor = Column(String,unique=True,nullable=False)
     user_id = Column(Integer,ForeignKey('User.id'))
     user = relationship("User")
     def __repr__(self):

@@ -3,6 +3,7 @@ from unnamed.connection.tcp import TCPConnection
 from  unnamed.coding.bencoding import Wrap
 from base64 import b64encode
 from unnamed.cryptography.host import host
+from unnamed.Server import server
 
 def tracker_update(tracker_hostname,
                    tracker_port,
@@ -73,3 +74,18 @@ def tracker_get(tracker_hostname,
     d = client.response(b)
     conn.close()
     return d
+
+def binToHex(bstr):
+    sstr = ""
+    for i in bstr:
+        sstr += hex(i)[2:]
+    return sstr
+
+def serve(conn,addr,handler,disp,s):
+    print(conn,addr)
+    b = server.request_recv(conn)
+    d = server.request(b)
+    print(d)
+    server.request_type_handle(d,handler=handler,conn = conn,dispatch = disp,port = s.port)
+    conn.close()
+    print("END1")

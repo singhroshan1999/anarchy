@@ -82,5 +82,12 @@ class host:
     @staticmethod
     def b64_str(bstr,encoding = "utf-8"):
         return str(b64encode(bstr),encoding=encoding)
+    @staticmethod
+    def hash(bstr,hash_function=hashes.SHA3_256()):
+        hash_digest = hashes.Hash(hash_function,default_backend())
+        hash_digest.update(bstr)
+        return hash_digest.finalize()
+
+
 
 
