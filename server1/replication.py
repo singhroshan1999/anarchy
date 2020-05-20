@@ -28,11 +28,11 @@ def xor_replication_post(trac,database):
     respd = None
     rows = sesson.query(Post).order_by(Post.id).all()
     # l = 0
-    r = len(rows)-1
+    r = len(rows)
     # xor_key = last_row.xor
     while r > 0 :
         print(r)
-        xor_key = rows[r].xor
+        xor_key = rows[r-1].xor
         data = {
                 'request' : ['replicate'],
                 'params' : {
@@ -51,7 +51,10 @@ def xor_replication_post(trac,database):
         }
         fw_conn = TCPConnection()
         # fw_conn.connect('127.0.0.1', 1025)
-        fw_conn.connect(trac['response-data']['data']['db'][0], trac['response-data']['data']['db'][1])
+        try:
+            fw_conn.connect(trac['response-data']['data']['db'][0], trac['response-data']['data']['db'][1])
+        except ConnectionRefusedError:
+            break
         req = client.request(reqd)
         client.request_send(fw_conn,req)
         resp = client.response_recv(fw_conn)
@@ -62,10 +65,15 @@ def xor_replication_post(trac,database):
             time.sleep(1)
         else:
             break
-
+    if respd is None :
+        return
     for i in range(len(respd['response-data']['data']['response'])):
         if len(sesson.query(Post).filter_by(sign=respd['response-data']['data']['response'][i]['sign']).all()) > 0:
             continue
+        userlst = sesson.query(User).filter_by(key=respd['response-data']['data']['response'][i]['key']).all()
+        if len(userlst) == 0:
+            u = User(key = respd['response-data']['data']['response'][i]['key'])
+            sesson.add(u)
         user = sesson.query(User).filter_by(key=respd['response-data']['data']['response'][i]['key'])[0]
         xor = int(sesson.query(Post).all()[-1].xor, base=16)
         xor ^= int(helper.binToHex(host.hash(bytes(respd['response-data']['data']['response'][i]['sign'],encoding='utf-8'))),base=16)

@@ -12,6 +12,8 @@ def get(header):
 
 def post(header):
     sesson = database.new_session()
+    if len(sesson.query(Post).filter_by(sign = header['sign']).all()) > 0 :
+        return {'status' : 'exist'}
     user = sesson.query(User).filter_by(key=header['key'])[0]
     xor = int(sesson.query(Post).all()[-1].xor,base=16)
     print(xor)

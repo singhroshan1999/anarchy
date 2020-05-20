@@ -33,7 +33,7 @@ replica.run_function(replicate_run)
 cont = container()
 
 v = UDPConnection()
-v.bind(('127.0.0.1',1024))
+v.bind(('127.0.0.1',s.port))
 vt = container()
 vt.run_function(validator,(v,))
 
