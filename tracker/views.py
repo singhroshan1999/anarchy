@@ -42,6 +42,8 @@ def add_server(header):
 
 def get_server(header):
     sesson = database.new_session()
+    if len(sesson.query(App).filter_by(name = header['data']['params']['app']).all()) == 0:
+        return {'status':'empty'}
     app = sesson.query(App).filter_by(name = header['data']['params']['app']).all()[0]
     serverlist = sesson.query(Server).filter(and_(
         # Server.hostname != header['data']['params']['hostname'], # TODO
@@ -52,5 +54,5 @@ def get_server(header):
     rand = random.randint(0,len(serverlist)-1)
     hostname,port = serverlist[rand].hostname,serverlist[rand].port
     print("->",hostname,port)
-    return {'db':[hostname,port]}
+    return {'status':'OK','db':[hostname,port]}
 

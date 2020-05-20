@@ -17,12 +17,14 @@ def xor_replication(Table,trac,database):
 
 
 def xor_replication_post(trac,database):
+    if trac['response-data']['data']['status'] == 'empty':
+        return
     sesson = database.new_session()
     # if len(sesson.query(Table).all()) == 0:
     #     sessor
 
     # fw_conn = TCPConnection()
-    #fw_conn.connect(trac['response-data']['data']['db'][0], trac['response-data']['data']['db'][1])
+
     respd = None
     rows = sesson.query(Post).order_by(Post.id).all()
     # l = 0
@@ -48,7 +50,8 @@ def xor_replication_post(trac,database):
             'request-type': 'new'
         }
         fw_conn = TCPConnection()
-        fw_conn.connect('127.0.0.1', 1025)
+        # fw_conn.connect('127.0.0.1', 1025)
+        fw_conn.connect(trac['response-data']['data']['db'][0], trac['response-data']['data']['db'][1])
         req = client.request(reqd)
         client.request_send(fw_conn,req)
         resp = client.response_recv(fw_conn)
