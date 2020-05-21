@@ -4,6 +4,7 @@ from  unnamed.coding.bencoding import Wrap
 from base64 import b64encode
 from unnamed.cryptography.host import host
 from unnamed.Server import server
+import sys
 
 def tracker_update(tracker_hostname,
                    tracker_port,
@@ -89,4 +90,6 @@ def serve(conn,addr,handler,disp,s):
     server.request_type_handle(d,handler=handler,conn = conn,dispatch = disp,port = s.port)
     conn.close()
     print("END1")
+    sys.exit()
+
 

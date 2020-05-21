@@ -41,5 +41,6 @@ vt.run_function(validator,(v,))
 while True:
     conn,addr = s.accept()
     cont.run_function(helper.serve,(conn,addr,handler,disp,s))
+    print(vt.lst)
 
 

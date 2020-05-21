@@ -12,10 +12,11 @@ def new(req,**kwargs):
     key = host.load_key_str(b64decode( req['request-data']['key']))
     sign = b64decode(req['request-data']['sign'])
     if not host.verify_str(key,bstr,sign):
-        print("UN VERIFIED")
+        # print("UN VERIFIED")
         raise Exception
     else:
-        print("VERIFIED")
+        # print("VERIFIED")
+        pass
     data = dispatch(kwargs['dispatch'],list(req['request-data']['data']['request']),req['request-data'])
     out_bstr = Wrap.toBen(data)
     response_data = {
@@ -33,7 +34,7 @@ def new(req,**kwargs):
         req['request-type'] = 'forward'
         req['forward-host'] = host.b64_str(key_str)
         req['forward-sign'] = host.b64_str(host.sign_str(pk,fw_bstr))
-        print(req)
+        # print(req)
         trac = helper.tracker_get('127.0.0.1', 1024, ['get'], 'my_app2', '127.0.0.1', kwargs['port'], key, pk)
         fw_conn = TCPConnection()
         fw_conn.connect(trac['response-data']['data']['db'][0], trac['response-data']['data']['db'][1])
@@ -45,9 +46,15 @@ def new(req,**kwargs):
         #verify_response
         server.response_send(kwargs['conn'], server.response(fw_resp))
         kwargs['conn'].close()
-        # fw_resp_b2 = client.response_recv(fw_conn)
-        # fw_resp2 = client.response(fw_resp_b)
+        print(trac['response-data']['data']['db'][1],req['request-data']['data'],'<-')
+        if fw_resp['response-data']['data']['status'] != 'OK':
+            fw_conn.close()
+            return
+        fw_resp_b2 = client.response_recv(fw_conn)
+        fw_resp2 = client.response(fw_resp_b)
         #verify_response
+        print(req['request-data']['data'],'<+')
+
 
         fw_conn.close()
 

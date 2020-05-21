@@ -35,6 +35,6 @@ def validator(conn):
     c = container()
     while True:
         data,addr = conn.recv()
-        print(data)
+        # print(data)
         data_str = str(data,encoding='utf-8')
         c.run_function(validate,(conn,data_str,addr))

@@ -30,8 +30,9 @@ def xor_replication_post(trac,database):
     # l = 0
     r = len(rows)
     # xor_key = last_row.xor
+    database.sesson_close(sesson)
     while r > 0 :
-        print(r)
+        # print(r)
         xor_key = rows[r-1].xor
         data = {
                 'request' : ['replicate'],
@@ -66,8 +67,9 @@ def xor_replication_post(trac,database):
         else:
             break
     if respd is None :
-        database.sesson_close(sesson)
+        # database.sesson_close(sesson)
         return
+    sesson = database.new_session()
     for i in range(len(respd['response-data']['data']['response'])):
         if len(sesson.query(Post).filter_by(sign=respd['response-data']['data']['response'][i]['sign']).all()) > 0:
             continue

@@ -7,7 +7,7 @@ def get(header):
     sesson = database.new_session()
     p = sesson.query(Post).all()[0]
     d = p.user
-    print(p.__dict__,d.__dict__)
+    # print(p.__dict__,d.__dict__)
     database.sesson_close(sesson)
     return  {"db":['p','d']}
 
@@ -36,7 +36,7 @@ def add_user(header):
     return {"status":"OK"}
 
 def replicate(header):
-    print('x')
+    # print('x')
     xor_key = header['data']['params']['xor']
     sesson = database.new_session()
     if len(sesson.query(Post).filter_by(xor=xor_key).all()) == 0:
