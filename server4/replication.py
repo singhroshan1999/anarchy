@@ -66,6 +66,7 @@ def xor_replication_post(trac,database):
         else:
             break
     if respd is None :
+        database.sesson_close(sesson)
         return
     for i in range(len(respd['response-data']['data']['response'])):
         if len(sesson.query(Post).filter_by(sign=respd['response-data']['data']['response'][i]['sign']).all()) > 0:
@@ -80,5 +81,5 @@ def xor_replication_post(trac,database):
         post = Post(text = respd['response-data']['data']['response'][i]['text'],sign=respd['response-data']['data']['response'][i]['sign'],user=user,xor=hex(xor)[2:])
         sesson.add(post)
     sesson.commit()
-
+    database.sesson_close(sesson)
 

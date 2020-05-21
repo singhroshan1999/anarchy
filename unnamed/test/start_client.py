@@ -11,7 +11,7 @@ key = host.load_key('../../CLIEN1_KEY')
 
 while True:
     conn = TCPConnection()
-    conn.connect("127.0.0.1",1028)
+    conn.connect("127.0.0.1",1026)
     ring = random.randint(0,100000)
     data = {
             'request' : ['post'],
