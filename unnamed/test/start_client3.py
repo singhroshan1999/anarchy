@@ -11,7 +11,7 @@ key = host.load_key('../../CLIEN1_KEY')
 
 while True:
     conn = TCPConnection()
-    conn.connect("127.0.0.1",1028)
+    conn.connect("127.0.0.1",1026)
     ring = random.randint(0,100000)
     data = {
             'request' : ['post'],
@@ -42,5 +42,5 @@ while True:
     # if reqd['request-data']['type'] == 'POST':
     #     b2 = client.response_recv(conn)
     conn.close()
-    print(d)
-    time.sleep(5)
+    print('A')
+    # time.sleep(0.0001)

@@ -83,13 +83,29 @@ def binToHex(bstr):
     return sstr
 
 def serve(conn,addr,handler,disp,s):
-    print(conn,addr)
+    # print(conn,addr)
     b = server.request_recv(conn)
     d = server.request(b)
-    print(d)
+    # print(d)
     server.request_type_handle(d,handler=handler,conn = conn,dispatch = disp,port = s.port)
     conn.close()
-    print("END1")
+    # print("END1")
     sys.exit()
 
+def invalid_request_response(pk,key_str,sign):
+    data = {
+        'status' : 'invalid-sign',
+        'sign' : sign
+    }
+    out_bstr = Wrap.toBen(data)
+    response_data = {
+        'data': data,
+        'host':host.b64_str(key_str),
+        'sign' : host.b64_str(host.sign_str(pk,out_bstr))
+    }
+    resp = {
+        'response-data' : response_data,
+        'response-type' : 'DATA'
+    }
+    return  resp
 

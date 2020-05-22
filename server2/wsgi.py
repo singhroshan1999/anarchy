@@ -1,5 +1,4 @@
 from unnamed.connection.serv import ServLocal
-from unnamed.Server import server
 from server2.dispatch import disp
 from server2.handler import handler
 from server2.settings import key,pk,database
@@ -26,7 +25,7 @@ def replicate_run():
     while True:
         trac = helper.tracker_get('127.0.0.1', 1024, ['get'], 'my_app2', '127.0.0.1', s.port, key, pk)
         xor_replication_post(trac, database=database)
-        time.sleep(5)
+        time.sleep(1)
 replica = container()
 replica.run_function(replicate_run)
 
@@ -41,5 +40,5 @@ vt.run_function(validator,(v,))
 while True:
     conn,addr = s.accept()
     cont.run_function(helper.serve,(conn,addr,handler,disp,s))
-    print(vt.lst)
+
 
