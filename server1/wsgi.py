@@ -1,5 +1,4 @@
 from unnamed.connection.serv import ServLocal
-from unnamed.Server import server
 from server1.dispatch import disp
 from server1.handler import handler
 from server1.settings import key,pk,database

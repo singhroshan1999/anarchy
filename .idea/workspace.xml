@@ -17,30 +17,16 @@
       <change beforePath="$PROJECT_DIR$/server1/replication.py" beforeDir="false" afterPath="$PROJECT_DIR$/server1/replication.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server1/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/server1/validator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server1/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server1/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server1/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/server1/wsgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server2/SERVER.db" beforeDir="false" afterPath="$PROJECT_DIR$/server2/SERVER.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server2/handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/server2/handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server2/replication.py" beforeDir="false" afterPath="$PROJECT_DIR$/server2/replication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server2/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/server2/validator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server2/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server2/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server2/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/server2/wsgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server3/SERVER.db" beforeDir="false" afterPath="$PROJECT_DIR$/server3/SERVER.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server3/handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/server3/handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server3/replication.py" beforeDir="false" afterPath="$PROJECT_DIR$/server3/replication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server3/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/server3/validator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server3/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server3/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server3/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/server3/wsgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server4/SERVER.db" beforeDir="false" afterPath="$PROJECT_DIR$/server4/SERVER.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server4/handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/server4/handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server4/replication.py" beforeDir="false" afterPath="$PROJECT_DIR$/server4/replication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server4/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/server4/validator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server4/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server4/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server4/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/server4/wsgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tracker/SERVER1.db" beforeDir="false" afterPath="$PROJECT_DIR$/tracker/SERVER1.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unnamed/GEN/SERVER/handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/unnamed/GEN/SERVER/handler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unnamed/GEN/SERVER/replication.py" beforeDir="false" afterPath="$PROJECT_DIR$/unnamed/GEN/SERVER/replication.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unnamed/GEN/SERVER/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/unnamed/GEN/SERVER/validator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unnamed/GEN/SERVER/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/unnamed/GEN/SERVER/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unnamed/Server/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/unnamed/Server/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unnamed/GEN/SERVER/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/unnamed/GEN/SERVER/wsgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unnamed/test/start_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/unnamed/test/start_client.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -239,33 +225,33 @@
       <screen x="0" y="0" width="1366" height="734" />
     </state>
     <state x="394" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.734@0.0.1366.734" timestamp="1589123948889" />
-    <state x="103" y="0" width="1166" height="534" maximized="true" key="DiffContextDialog" timestamp="1590091064780">
+    <state x="103" y="0" width="1166" height="534" maximized="true" key="DiffContextDialog" timestamp="1590159434321">
       <screen x="0" y="0" width="1366" height="734" />
     </state>
-    <state x="103" y="0" width="1166" height="534" maximized="true" key="DiffContextDialog/0.0.1366.734@0.0.1366.734" timestamp="1590091064780" />
+    <state x="103" y="0" width="1166" height="534" maximized="true" key="DiffContextDialog/0.0.1366.734@0.0.1366.734" timestamp="1590159434321" />
     <state x="466" y="125" width="424" height="483" key="FileChooserDialogImpl" timestamp="1589641837986">
       <screen x="0" y="0" width="1366" height="734" />
     </state>
     <state x="466" y="125" width="424" height="483" key="FileChooserDialogImpl/0.0.1366.734@0.0.1366.734" timestamp="1589641837986" />
-    <state width="1345" height="212" key="GridCell.Tab.0.bottom" timestamp="1590090661267">
+    <state width="1345" height="212" key="GridCell.Tab.0.bottom" timestamp="1590132689907">
       <screen x="0" y="0" width="1366" height="734" />
     </state>
-    <state width="1345" height="212" key="GridCell.Tab.0.bottom/0.0.1366.734@0.0.1366.734" timestamp="1590090661267" />
+    <state width="1345" height="212" key="GridCell.Tab.0.bottom/0.0.1366.734@0.0.1366.734" timestamp="1590132689907" />
     <state width="1345" height="218" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1589011623877" />
-    <state width="1345" height="212" key="GridCell.Tab.0.center" timestamp="1590090661266">
+    <state width="1345" height="212" key="GridCell.Tab.0.center" timestamp="1590132689907">
       <screen x="0" y="0" width="1366" height="734" />
     </state>
-    <state width="1345" height="212" key="GridCell.Tab.0.center/0.0.1366.734@0.0.1366.734" timestamp="1590090661266" />
+    <state width="1345" height="212" key="GridCell.Tab.0.center/0.0.1366.734@0.0.1366.734" timestamp="1590132689907" />
     <state width="1345" height="218" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1589011623876" />
-    <state width="1345" height="212" key="GridCell.Tab.0.left" timestamp="1590090661265">
+    <state width="1345" height="212" key="GridCell.Tab.0.left" timestamp="1590132689906">
       <screen x="0" y="0" width="1366" height="734" />
     </state>
-    <state width="1345" height="212" key="GridCell.Tab.0.left/0.0.1366.734@0.0.1366.734" timestamp="1590090661265" />
+    <state width="1345" height="212" key="GridCell.Tab.0.left/0.0.1366.734@0.0.1366.734" timestamp="1590132689906" />
     <state width="1345" height="218" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1589011623876" />
-    <state width="1345" height="212" key="GridCell.Tab.0.right" timestamp="1590090661266">
+    <state width="1345" height="212" key="GridCell.Tab.0.right" timestamp="1590132689907">
       <screen x="0" y="0" width="1366" height="734" />
     </state>
-    <state width="1345" height="212" key="GridCell.Tab.0.right/0.0.1366.734@0.0.1366.734" timestamp="1590090661266" />
+    <state width="1345" height="212" key="GridCell.Tab.0.right/0.0.1366.734@0.0.1366.734" timestamp="1590132689907" />
     <state width="1345" height="218" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1589011623877" />
     <state width="1345" height="216" key="GridCell.Tab.1.bottom" timestamp="1588952435085">
       <screen x="0" y="0" width="1366" height="734" />

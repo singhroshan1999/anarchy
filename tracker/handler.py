@@ -28,26 +28,6 @@ def new(req,**kwargs):
         'response-type' : 'DATA'
     }
     server.response_send(kwargs['conn'],server.response(resp))
-    # if req['request-data']['type'] == 'POST':
-    #     fw_bstr = Wrap.toBen(req['request-data'])
-    #     req['request-type'] = 'forward'
-    #     req['forward-host'] = host.b64_str(key_str)
-    #     req['forward-sign'] = host.b64_str(host.sign_str(pk,fw_bstr))
-    #     print(req)
-    #     req_b = client.request(req)
-    #     fw_conn = TCPConnection()
-    #     fw_conn.connect('127.0.0.1',1025)
-    #     client.request_send(fw_conn,req_b)
-    #     fw_resp_b = client.response_recv(fw_conn)
-    #     fw_resp = client.response(fw_resp_b)
-    #     #verify_response
-    #     server.response_send(kwargs['conn'], server.response(fw_resp))
-    #     kwargs['conn'].close()
-    #     fw_resp_b2 = client.response_recv(fw_conn)
-    #     fw_resp2 = client.response(fw_resp_b)
-    #     #verify_response
-    #
-    #     fw_conn.close()
 
 def forward(req,**kwargs):
     #verify_forward-host

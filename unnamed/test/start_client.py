@@ -16,7 +16,7 @@ while True:
     data = {
             'request' : ['post'],
             'params' : {
-                'text' : input(),
+                'text' : str(random.randint(0,10000)*random.randint(0,10000)),
             }
         # 'sign': input(),
         # 'ring': str(ring)
@@ -43,3 +43,4 @@ while True:
     #     b2 = client.response_recv(conn)
     conn.close()
     print(d)
+    time.sleep(0.001)
