@@ -1,4 +1,4 @@
-from unnamed.connection.udp import UDPConnection
+from anarchy.connection.udp import UDPConnection
 
 while True:
     text = bytes(input(),encoding='utf-8')

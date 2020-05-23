@@ -1,4 +1,4 @@
-from unnamed.connection.udp import UDPConnection
+from anarchy.connection.udp import UDPConnection
 
 s = UDPConnection()
 s.bind(('127.0.0.1',1024))
