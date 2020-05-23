@@ -5,20 +5,20 @@ from unnamed.Server.helper import binToHex
 
 def get(header):
     sesson = database.new_session()
-    p = sesson.query(Post).all()[0]
+    p = sesson.query(Post).all()[-1]
     d = p.user
     database.sesson_close(sesson)
-    return  {"db":['p','d']}
+    return  {"db":[{'post':p.toDict(),'user':d.toDict()}]}
 
 def post(header):
     sesson = database.new_session()
-    if len(sesson.query(Post).filter_by(sign = header['sign']).all()) > 0 :
+    if len(sesson.query(Post).filter_by(sign = header['data']['data-sign']).all()) > 0 :
         database.sesson_close(sesson)
         return {'status' : 'exist'}
     user = sesson.query(User).filter_by(key=header['key'])[0]
     xor = int(sesson.query(Post).all()[-1].xor,base=16)
-    xor ^= int(binToHex(host.hash(bytes(header['sign'],encoding='utf-8'))),base=16)
-    post = Post(text = header['data']['params']['text'],sign=header['sign'],user=user,xor=hex(xor)[2:])
+    xor ^= int(binToHex(host.hash(bytes(header['data']['data-sign'],encoding='utf-8'))),base=16)
+    post = Post(text = header['data']['params']['text'],sign=header['data']['data-sign'],user=user,xor=hex(xor)[2:])
     sesson.add(post)
     sesson.commit()
     database.sesson_close(sesson)

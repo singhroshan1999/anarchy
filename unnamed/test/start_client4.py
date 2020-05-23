@@ -13,11 +13,14 @@ while True:
     conn = TCPConnection()
     conn.connect("127.0.0.1",1025)
     ring = random.randint(0,100000)
-    data = {
-            'request' : ['get'],
-            'params' : {
+    params = {
                 'text' : str(random.randint(0,10000)*random.randint(0,10000)),
             }
+    data_sign = str(b64encode(host.sign_str(pk, bstr=Wrap.reduceToBytes(Wrap.dictToBen(params)))), encoding='utf-8')
+    data = {
+            'request' : ['post'],
+            'params' : params,
+            'data-sign' : data_sign
         # 'sign': input(),
         # 'ring': str(ring)
         }
@@ -25,7 +28,7 @@ while True:
     reqd = {
         'request-data': {
             'data': data,
-            'type': "GET",
+            'type': "POST",
             'key': str(b64encode(host.gen_key_str(key)), encoding='utf-8'),
             'sign': str(b64encode(host.sign_str(pk, bstr=bstr)), encoding='utf-8')
         },
@@ -42,5 +45,11 @@ while True:
     # if reqd['request-data']['type'] == 'POST':
     #     b2 = client.response_recv(conn)
     conn.close()
-    print('A')
-    # time.sleep(0.0001)
+    # print(b)
+    # print(d['response-data']['data']['db'][0][0]['post']['sign'])
+    # if host.verify_str(host.load_key_str(b64decode(d['response-data']['data']['db'][0]['user']['key'])),
+    #                    Wrap.reduceToBytes(Wrap.dictToBen(d['response-data']['data']['db'][0]['post']['signed-data'])),
+    #                                   b64decode(d['response-data']['data']['db'][0]['post']['sign'])):
+    #     print("qazwsxedc")
+    print(len(b))
+    time.sleep(0.001)

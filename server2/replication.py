@@ -1,4 +1,3 @@
-from unnamed.Server.dispatcher import dispatch
 from unnamed.Server import server,helper
 from unnamed.coding.bencoding import Wrap
 from base64 import b64decode,b64encode

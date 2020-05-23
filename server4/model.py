@@ -11,6 +11,11 @@ class User(settings.base):
 
     def __repr__(self):
         return "(%s:%s)"% (self.name,self.key)
+    def toDict(self):
+        return {
+                'key': self.key,
+                'name':self.name
+                }
 class Post(settings.base):
     __tablename__ = "post"
     id = Column(Integer,primary_key=True,autoincrement=True)
@@ -22,4 +27,11 @@ class Post(settings.base):
     user = relationship("User")
     def __repr__(self):
         return "(%s:%s:%s:%s:%s)"% (self.text,self.datetime,self.sign,self.user_id,self.user)
+    def toDict(self):
+        return {'sign': self.sign,
+                'signed-data':{
+                    'text':self.text
+                },
+                'datetime':str(self.datetime)
+                }
 
